@@ -6,7 +6,7 @@ sudo apt-get -y install build-essential git subversion mercurial make flex bison
 ${MY_ECHO} "\033[1;34mInstall requiments 2\033[0m"
 sudo apt-get -y install ncurses-dev unzip groff bc dosfstools
 ${MY_ECHO} "\033[1;34mInstall requiments 3\033[0m"
-sudo apt-get -y install autoconf pkg-config libtool gettext gcc-multilib
+sudo apt-get -y install autoconf pkg-config libtool gettext gcc-multilib graphviz
 
 ${MY_ECHO} "\033[1;34mMake /opt directory\033[0m"
 sudo mkdir /opt
@@ -24,6 +24,7 @@ else
   ${MY_ECHO} ""
   ${MY_ECHO} "\033[1;34mDownload buildroot\033[0m"
   ${MY_ECHO} ""
+  cd /opt
   git clone git://git.buildroot.net/buildroot
 fi
 

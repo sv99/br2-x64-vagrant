@@ -28,6 +28,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "shell", path: "prep_ubuntu.sh",
     keep_color: true
 
+  # Uncomment if needed external access to the VM
+  # config.vm.network "forwarded_port", guest: 22, host: 2022,
+  #   auto_correct: true
+
 # wery bad outpput when downloading code sourcery and git clone!!
 #  config.vm.provision "shell", path: "install_sdk.sh",
 #    keep_color: true,
