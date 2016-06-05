@@ -39,5 +39,22 @@ git config --global core.autocrlf false
 ```
 install_buildroot.sh
 cd /opt/buildroot
+make BR2_EXTERNAL=/vagrant/buildroot-v2r-v1 menuconfig
+```
+
+## BR2 overlay dir
+
+add_br2_package_overlay_dir.patch
+
+Позволяет менять параметры в стандартных пакетах buildroot без изменения исходников.
+В текущей конфигурации нужно менять параметры для nginx - поддержка rtsp.
+
+```
+cd fs/
+git patch ../buildroot-v2r-v1/add_br2_package_overlay_dir.patch
+...
+git checkout .
+git pull upstream master
+git patch  ../buildroot-v2r-v1/add_br2_package_overlay_dir.patch
 ```
 
