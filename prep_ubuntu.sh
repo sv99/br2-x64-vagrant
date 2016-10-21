@@ -29,6 +29,8 @@ apt-get update && apt-get -y upgrade
 
 ${ECHO} "\033[1;34mInstall mc\033[0m"
 apt-get -y install mc
+${MY_ECHO} "\033[1;34mInstall silversearcher-ag\033[0m"
+apt-get -y install silversearcher-ag
 
 ${ECHO} "\033[1;34mInstall ntp\033[0m"
 apt-get -y install ntp

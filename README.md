@@ -49,12 +49,33 @@ add_br2_package_overlay_dir.patch
 Позволяет менять параметры в стандартных пакетах buildroot без изменения исходников.
 В текущей конфигурации нужно менять параметры для nginx - поддержка rtsp.
 
-```
+```bash
 cd fs/
 git patch ../buildroot-v2r-v1/add_br2_package_overlay_dir.patch
 ...
 git checkout .
 git pull upstream master
 git patch  ../buildroot-v2r-v1/add_br2_package_overlay_dir.patch
+```
+
+## send patch
+
+Provision setup git-send-email.
+
+Configure smtp server password:
+```bash
+git config --global sendemail.smtppass xxxx
+```
+
+```bash
+# make fix
+git checkout -b <fix_branch_name>
+# commit changes
+git commit -m "<package_name>: fix info"
+# generate patches
+git format-patch -M -n -s -o outgoing origin/master
+# correct patches in the outgoing folder ...
+# send patch
+git send-email --to buildroot@buildroot.org --cc "Volkov Viacheslav <sv99@inbox.ru>" outgoing/0001-fix-zbar-build.patch
 ```
 
